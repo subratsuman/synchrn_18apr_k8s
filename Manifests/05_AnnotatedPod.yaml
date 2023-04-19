@@ -1,0 +1,20 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: pod5
+  labels:
+    tier: frontend
+    env: prod
+    city: Pune
+    color: Green
+  annotations:
+    ExpectedLifetime: "Will be destroyed sometime after this training"
+
+spec:
+  containers:
+    - name: cont1
+      image: nginx
+    - name: cont2
+      image: redis

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+
+kind: ReplicaSet
+
+metadata:
+  name: my-rs-b
+
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - webapp
+          - dbapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+        - name: cont1
+          image: nginx
+
