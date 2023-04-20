@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: pod2
+
+spec:
+  containers:
+    - name: cont1
+      image: debian
+      env:
+        - name: USER_NAME
+          value: "Ramakant"
+      command: ["/bin/sh"]
+      args: ["-c", "while true; do echo Hello $(USER_NAME); sleep 2; done"]
+  restartPolicy: OnFailure
