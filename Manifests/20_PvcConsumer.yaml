@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: pod11
+
+spec:
+  containers:
+    - name: cont1
+      image: nginx
+      volumeMounts:
+        - name: vol1
+          mountPath: /ramakant
+  volumes:
+    - name: vol1
+      persistentVolumeClaim:
+        claimName: pvc1

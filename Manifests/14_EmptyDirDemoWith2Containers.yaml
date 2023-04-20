@@ -1,0 +1,23 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: pod2
+
+spec:
+  volumes:
+    - name: vol1
+      emptyDir: {}
+  containers:
+    - name: cont1
+      image: nginx
+      volumeMounts:
+        - name: vol1
+          mountPath: /ramakant-dir
+    - name: ont2
+      image: redis
+      volumeMounts:
+        - name: vol1
+          mountPath: /dataDrv
+

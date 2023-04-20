@@ -1,0 +1,23 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: pod3
+
+spec:
+  volumes:
+    - name: vol1
+      nfs:
+        server: 172.31.82.130     # <-- run "ip -br a" on master (where the nfs server is configured) and get the eth0
+        path: /nfsdata            # <-- folder configured for share using exportfs
+
+          #hostPath:
+          #  path: /locationData
+  containers:
+    - name: cont1
+      image: nginx
+      volumeMounts:
+        - name: vol1
+          mountPath: /ramakant-dir
+
