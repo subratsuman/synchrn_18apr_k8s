@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: pod5
+spec:
+  containers:
+    - name: cont1
+      image: alpine
+      command: ["/bin/sleep", "999999"]
+      securityContext:
+        runAsUser: 405
+          # runAsNonRoot: true
+          # privileged: true
+          # readOnlyRootFileSystem: true

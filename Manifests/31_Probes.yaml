@@ -1,0 +1,20 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: pod2
+
+spec:
+  containers:
+    - name: cont1
+      image: nginx
+      livenessProbe:
+        initialDelaySeconds: 3
+        exec:
+          command:
+            - cat
+            - /tmp/criticalFile
+          #httpGet:
+          #  port: 80
+          #  path: /data-dir/dataReport.html
